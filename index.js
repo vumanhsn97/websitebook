@@ -345,31 +345,3 @@ app.get('/xoaanh-:id', function(req, res){
   })
 });
 
-/*
-test github 
-
-app.post('/xoaanh', urlencodedParser, function(req, res){
-  var timkiem = req.body.timkiem;
-  books.find({}, function(err, result){
-    var book=[];
-    var i = 0;
-    while(result[i]){
-      if(result[i].bookname.indexOf(timkiem)!=-1)
-      {
-        book.push(result[i]);
-      }
-      i = i + 1;
-    }
-    imagesbook.find({}, function(err, images){
-      res.render('themanh',{book:book, images:images});
-    })
-  })
-});
-app.get('/xoaanh-:id', function(req, res){
-  var id = req.params.id;
-  imagesbook.deleteOne({_id:id}, function(err){
-    if(err) res.send("<p>Xoá ảnh không thành công</p><a href='/xoaanh'>Quay lại</a>");
-    else{
-      res.send("<p>Xoá ảnh thành công</p><a href='/xoaanh'>Quay lại</a>")
-
-*/
