@@ -1,0 +1,35 @@
+#author{
+  margin-top: 10px;
+}
+
+#typebook{
+  margin-top: 10px;
+  margin-top: 10px;
+}
+
+#bookprice{
+  margin-top: 10px;
+  margin-top: 10px;
+   color:red;
+}
+
+#viewsbook{
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+.addtocart{
+  height:50px;
+  width: 220px;
+  float:left;
+  margin-left:30px;
+  margin-top:30px;
+}
+
+.smile{
+  float:left;
+  width:50px;
+  height:50px;
+  margin-left:20px;
+   margin-top:30px;
+}

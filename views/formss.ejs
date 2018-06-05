@@ -1,0 +1,101 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="css/admin.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div style="height:100px; width: 100%;"></div>
+      <div style="width:250px; height: 500px; float:left;">
+        <a href="#"><div class="menu" onclick="funsach()">
+          <div id="text">Sách</div>
+        </div></a>
+        <div id="sach">
+          <a href="themsach"><div class="tab"><span style="margin-left:20px; color:red;">Thêm sách</span></div></a>
+          <a href="xoasach"><div class="tab"><span style="margin-left:20px;">Xoá sách</span></div></a>
+          <a href="suasach"><div class="tab"><span style="margin-left:20px;">Sửa sách</span></div></a>
+        </div>
+        <a href="#"><div class="menu" style="margin-top:10px;" onclick="funanhsach()">
+          <div id="text">Ảnh Sách</div>
+        </div></a>
+        <div id="anhsach" style="display:none;">
+          <a href="themanh"><div class="tab"><span style="margin-left:20px;">Thêm ảnh</span></div></a>
+          <a href="xoaanh"><div class="tab"><span style="margin-left:20px;">Xoá ảnh</span></div></a>
+        </div>
+      </div>
+      <div style="width:800px; height: 500px; margin-left: 60px; float:left;">
+        <p style="color:red; font-size:25px; margin-left:10px;">Cập nhật theo form bên dưới</p>
+        <form action="/suasach-<%= fixbook._id %>" method="post">
+          <table>
+            <tr>
+              <td>Tên sách: </td>
+              <td><input type="text" name = "bookname" style="width:600px; margin-left:5px;" value="<%= fixbook.bookname %>"/></td>
+            </tr>
+            <tr>
+              <td>Giá sách: </td>
+              <td><input type="text" name = "bookprice" style="width:100px; margin-left:5px; color:red;" value="<%= fixbook.bookprice %>"/> VNĐ</td>
+            </tr>
+            <tr>
+              <td>Loại sách: </td>
+              <td>
+                <select name="booktype" style="margin-left:5px;" value="<%= fixbook.booktype %>">
+                  <option value="Truyện ngắn">Truyện ngắn</option>
+                  <option value="Truyện tranh">Truyện tranh</option>
+                  <option value="Giáo dục">Giáo dục</option>
+                  <option value="Kĩ năng sống">Kĩ năng sống</option>
+                  <option value="Kinh tế">Kinh tế</option>
+                  <option value="Tâm lý">Tâm lý</option>
+                  <option value="Sách giáo khoa">Sách giáo khoa</option>
+                  <option value="Văn học">Văn học</option>
+                  <option value="Ngoại ngữ">Ngoại ngữ</option>
+                  <option value="Truyện cổ tích">Truyện cổ tích</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>Tác giả: </td>
+              <td><input type="text" name = "author" style="width:200px; margin-left:5px;" value="<%= fixbook.author %>"/></td>
+            </tr>
+            <tr>
+              <td>Nội dung sách: </td>
+              <td><textarea cols="85" rows="9" name="bookcontent" style="margin-left:5px;"><%= fixbook.bookcontent %></textarea></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><input type="submit" value="Update" style="margin-left:5px;"/></td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
+    <script>
+      var i = 0;
+      function funsach(){
+        if(i == 1){
+          document.getElementById('sach').style.display = "block";
+          i = 0;
+        }
+        else {
+          document.getElementById('sach').style.display = "none";
+          i = 1;
+        }
+
+      }
+      var j = 1;
+      function funanhsach(){
+        if(j == 1){
+          document.getElementById('anhsach').style.display = "block";
+          j = 0;
+        }
+        else {
+          document.getElementById('anhsach').style.display = "none";
+          j = 1;
+        }
+
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="css/admin.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div style="height:100px; width: 100%;"></div>
+      <div style="width:250px; height: 500px; float:left;">
+        <a href="#"><div class="menu" onclick="funsach()">
+          <div id="text">Sách</div>
+        </div></a>
+        <div id="sach" style="display:none;">
+          <a href="themsach"><div class="tab"><span style="margin-left:20px;">Thêm sách</span></div></a>
+          <a href="xoasach"><div class="tab"><span style="margin-left:20px;">Xoá sách</span></div></a>
+          <a href="suasach"><div class="tab"><span style="margin-left:20px;">Sửa sách</span></div></a>
+        </div>
+        <a href="#"><div class="menu" style="margin-top:10px;" onclick="funanhsach()">
+          <div id="text">Ảnh Sách</div>
+        </div></a>
+        <div id="anhsach" style="display:none;">
+          <a href="themanh"><div class="tab"><span style="margin-left:20px;">Thêm ảnh</span></div></a>
+          <a href="xoaanh"><div class="tab"><span style="margin-left:20px;">Xoá ảnh</span></div></a>
+        </div>
+      </div>
+      <div style="width:800px; height: 500px; margin-left: 60px; float:left; border:1px solid gray;">
+        <div style="margin:auto; width:40%; margin-top:20%; font-size:50px;">Do something</div>
+      </div>
+    </div>
+    <script>
+      var i = 1;
+      function funsach(){
+        if(i == 1){
+          document.getElementById('sach').style.display = "block";
+          i = 0;
+        }
+        else {
+          document.getElementById('sach').style.display = "none";
+          i = 1;
+        }
+
+      }
+      var j = 1;
+      function funanhsach(){
+        if(j == 1){
+          document.getElementById('anhsach').style.display = "block";
+          j = 0;
+        }
+        else {
+          document.getElementById('anhsach').style.display = "none";
+          j = 1;
+        }
+
+      }
+    </script>
+  </body>
+</html>

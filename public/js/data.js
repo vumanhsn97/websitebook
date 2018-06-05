@@ -1,7 +1,7 @@
-document.getElementById('bookname').innerHTML = "Tên sách: Gửi Thanh Xuân Ấm Áp Của Chúng Ta (Tập 1 Và 2)";
+document.getElementById('bookname').innerHTML = "Tên sách: Truyện này bình thường quá";
 document.getElementById('typebook').innerHTML = "Loại sách: Truyện ngắn";
-document.getElementById('bookprice').innerHTML = "Giá: 119000Đ";
-document.getElementById('author').innerHTML = "Tác giả: Triệu Kiền Kiền";
+document.getElementById('bookprice').innerHTML = "Giá: 1111Đ";
+document.getElementById('author').innerHTML = "Tác giả: Vũ Văn Mạnh";
 document.getElementById('viewsbook').innerHTML = "Lượt xem: 0";
-document.getElementById('bookcontent').innerHTML = "Gửi Thanh Xuân Ấm Áp Của Chúng Ta (Tập 1 Và 2)Gửi cho thời thanh xuân ấm áp nhất của chúng ta.Bạn đã bao giờ tự hỏi lòng mình, “thanh xuân” là gì hay chưa? Thanh xuân, là những thước phim quay chậm về những tháng ngày non nớt; những tháng ngày gục đầu trên bàn học của giảng đường. Là những cô bạn thân cùng bàn năm đó, hay chị chị em em chung một kí túc nho nhỏ, hàn thuyên về những mơ ước phía xa, đôi ba câu chuyện không đầu không cuối mà nói hết cả một ngày dài. Là những tháng ngày hồn nhiên không muộn phiền của cô gái nhỏ Mạt Mạt trong “Gửi thanh xuân ấm áp của chúng ta” bên bạn thân Mộng Lộ, Vương San và Đàn Chị. Những chất chứa trên những gương mặt thân quen cả đời này chẳng tài nào quên được, dường như khắc sâu vào tận đáy lòng để cô luôn thương nhớ suốt những ngày tháng về sau. ";
+document.getElementById('bookcontent').innerHTML = "rtrtet";
 window.onload = function() {if(!window.location.hash) {window.location = window.location + '#loaded';window.location.reload();}}
