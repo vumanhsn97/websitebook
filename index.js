@@ -346,6 +346,8 @@ app.get('/xoaanh-:id', function(req, res){
 });
 
 /*
+test github 
+
 app.post('/xoaanh', urlencodedParser, function(req, res){
   var timkiem = req.body.timkiem;
   books.find({}, function(err, result){
@@ -369,4 +371,5 @@ app.get('/xoaanh-:id', function(req, res){
     if(err) res.send("<p>Xoá ảnh không thành công</p><a href='/xoaanh'>Quay lại</a>");
     else{
       res.send("<p>Xoá ảnh thành công</p><a href='/xoaanh'>Quay lại</a>")
+
 */
