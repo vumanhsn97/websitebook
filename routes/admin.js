@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
-
-
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+var multer =  require('multer');
 //Code trang admin
 router.get('/admin', function(req, res){
-    res.render("form");
+    res.render("admin");
 });
 
 router.get('/themsach', function(req, res){

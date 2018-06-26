@@ -14,7 +14,7 @@ router.get("/",function(req, res){
         i = i+1;
       }
       imagesbook.find({}, function(err, images){
-        res.render("trangchu",{book:listbook, images:images});
+        res.render("trangchu",{book:listbook, images:images, user:req.user});
       });
     }
   });
@@ -34,7 +34,7 @@ router.get("/trangchu",function(req, res){
         i = i+1;
       }
       imagesbook.find({}, function(err, images){
-        res.render("trangchu",{book:listbook, images:images});
+        res.render("trangchu",{book:listbook, images:images, user:req.user});
       });
     }
   });

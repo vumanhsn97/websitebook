@@ -23,11 +23,14 @@
       <h1 id="logo"><a href="#">Urgan Gear</a></h1>
       <div id="navigation">
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Support</a></li>
-          <li><a href="#">My Account</a></li>
-          <li><a href="#">The Store</a></li>
-          <li class="last"><a href="#">Contact</a></li>
+          <% if(user){ %>
+            <li><a href="">Thông tin tài khoản</a></li>
+            <li><a href="logout">Đăng xuất</a></li>
+          <% } else {%>
+            <li><a href="login">Đăng nhập</a></li>
+            <li><a href="register">Đăng ký</a></li>
+          <% } %>
+          <li class="last"><a href="#">Liên hệ </a></li>
         </ul>
       </div>
     </div>
@@ -75,14 +78,12 @@
     <!-- Search, etc -->
     <div class="options">
       <div class="search">
-        <form action="#" method="post">
-          <span class="field">
-          <input type="text" class="blink" value="SEARCH" title="SEARCH" />
-          </span>
-          <input type="text" class="search-submit" value="GO" />
+        <form action="search" method="post">
+          <input type="text" value="Tên sản phẩm" />
+          <input type="submit" value="Tìm kiếm" />
         </form>
       </div>
-      <span class="left"><a href="#">Advanced Search</a></span>
+      
       <div class="right"> <span class="cart"> <a href="#" class="cart-ico">&nbsp;</a> <strong>$0.00</strong> </span> <span class="left more-links"> <a href="#">Checkout</a> <a href="#">Details</a> </span> </div>
     </div>
     <!-- End Search, etc -->
