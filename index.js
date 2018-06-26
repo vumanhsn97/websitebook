@@ -5,8 +5,14 @@ var fs = require('fs');
 var app = express();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var CookieStrategy = require('passport-cookie').Strategy;
 var session = require('express-session');
-app.use(session({secret:'mysecret'}));
+app.use(session({
+  secret: 'mySecretKey',
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000
+  }
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 var bodyParser = require('body-parser');
@@ -45,11 +51,18 @@ customerSchema = new mongoose.Schema({
   password: String,
   cusname: String,
   email: String
-})
+});
+
+commentSchema = new mongoose.Schema({
+  idbook: String,
+  name: String,
+  content: String
+});
 
 books = mongoose.model('books', booksSchema);
 imagesbook = mongoose.model('imagesbook', imagesbookSchema);
 customer = mongoose.model('customer', customerSchema);
+comment = mongoose.model('comment', commentSchema);
 
 
 //Code website
@@ -61,3 +74,4 @@ app.use('/', require('./routes/admin'));
 app.use('/', require('./routes/login'));
 app.use('/', require('./routes/register'));
 app.use('/', require('./routes/logout'));
+app.use('/', require('./routes/addtocart'));
