@@ -116,37 +116,21 @@
       <div id="container" style="margin-top:-15px;">
         <div class="tabbed">
           <!-- First Tab Content -->
-          <div class="items">
-            <div class="cl">&nbsp;</div>
-            <div style="width:200px; height: 300px; float:right;">
-              <p style="font-size: 20px; color:red;"> Tổng số tiền cần thanh toán là: <% var i = 0, s = 0; while(book[i]){ s = s + book[i].bookprice*sl[i]; %>
-
-              <% i = i + 1;} %>
-              <%= s %> VNĐ
-            </p>
-              <a href="dathang"><input type="button" value="Thanh toán" style="width:200px; height:40px; font-size:20px;"/></a>
+          <div style="width:940px; height:300px;">
+            <div style="width:200px; height:40px;  background-color:red; margin:10px 350px;">
+              <p style="margin:0px 10px; font-size:20px;">Thông tin tài khoản<p>
             </div>
-            <% var i = 0; while(book[i]){ %>
-              <a href="chitiet-<%= i._id %>"><div style="width:700px; height:200px; border-bottom:1px solid black; float:left;">
-                <% var n=0; images.forEach(function(j){ %>
-                  <% if(j.idbook == book[i]._id && n==0){ %>
-                    <div style="float:left; width:160px; height:190px; margin:5px 10px;"><img src="<%= j.imageurl %>" width="100%" height="100%" /></div>
-                  <% n = 1; } %>
-                <% }) %>
-                <div style ="width: 500px; height: 100%; float:left">
-                  <span><%= book[i].bookname %></span><br />
-                  <span>Thể loại: <%= book[i].booktype %></span><br />
-                  <p class="price"><strong>Giá: <%= book[i].bookprice %> VND</strong></p>
-                  <p>Số lượng: <%= sl[i] %></p>
-                  <a href="cartdel-<%= book[i]._id %>">
-                    <input type="button" value="Xoá" />
-                  </a>
-                </div>
-
-              </div></a>
-            <% i = i + 1;} %>
-
-            <div class="cl">&nbsp;</div>
+            <p>Họ và tên: <%= user.cusname %></p>
+            <p>Địa chỉ Email: <%= user.email %></p>
+            <a href="suaaccount">
+              <input type="button" value="Chỉnh sửa thông tin cá nhân"/>
+            </a>
+            <a href="doimatkhau">
+              <input type="button" value="Thay đổi mật khẩu"/>
+            </a>
+            <a href="history">
+              <input type="button" value="Lịch sử trạng thái mua hàng"/>
+            </a>
           </div>
           <!-- End First Tab Content -->
         </div>

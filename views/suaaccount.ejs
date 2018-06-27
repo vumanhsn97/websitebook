@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sửa tài khoản</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="css/login.css" rel='stylesheet' type='text/css' media="all" /><!--stylesheet-->
+</head>
+<body>
+<h1>Sửa tài khoản</h1>
+<div class="form-w3ls">
+	<div class="form-head-w3l">
+		<h2>B</h2>
+	</div>
+    <div class="tab-content">
+        <div id="signin-agile">
+			<form action="suaaccount" method="post">
+
+				<p class="header">Họ và tên</p>
+				<input type="text" name="cusname" value="<%= user.cusname %>"/>
+
+				<p class="header">Địa chỉ email</p>
+				<input type="text" name="email" value="<%= user.email %>"/>
+				<input type="submit" class="sign-in" value="Cập nhật">
+			</form>
+		</div>
+		<div id="signup-agile">
+
+		</div>
+    </div><!-- tab-content -->
+</div> <!-- /form -->
+<p class="copyright"></p>
+
+</body>
+</html>

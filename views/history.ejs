@@ -118,31 +118,29 @@
           <!-- First Tab Content -->
           <div class="items">
             <div class="cl">&nbsp;</div>
-            <div style="width:200px; height: 300px; float:right;">
-              <p style="font-size: 20px; color:red;"> Tổng số tiền cần thanh toán là: <% var i = 0, s = 0; while(book[i]){ s = s + book[i].bookprice*sl[i]; %>
-
-              <% i = i + 1;} %>
-              <%= s %> VNĐ
-            </p>
-              <a href="dathang"><input type="button" value="Thanh toán" style="width:200px; height:40px; font-size:20px;"/></a>
-            </div>
-            <% var i = 0; while(book[i]){ %>
+            <p style="font-size: 30px; margin: 0px 0px 40px 350px;"> Lịch sử giao dịch </p>
+            <% var i = 0; while(sellbook[i]){ %>
+              <div style="width:200px; height: 200px; float:right; border-bottom:1px solid black;">
+                <p> Trạng thái: <%= sellbook[i].status %></p>
+                <p> Ngày giao dịch: <%= sellbook[i].date %></p>
+                <p> Địa chỉ nhận: <%= sellbook[i].address %></p>
+              </div>
               <a href="chitiet-<%= i._id %>"><div style="width:700px; height:200px; border-bottom:1px solid black; float:left;">
                 <% var n=0; images.forEach(function(j){ %>
-                  <% if(j.idbook == book[i]._id && n==0){ %>
+                  <% if(j.idbook == sellbook[i].idbook && n==0){ %>
                     <div style="float:left; width:160px; height:190px; margin:5px 10px;"><img src="<%= j.imageurl %>" width="100%" height="100%" /></div>
                   <% n = 1; } %>
                 <% }) %>
+                <% var n=0; book.forEach(function(k){ %>
+                  <% if(sellbook[i].idbook == k._id && n==0){ %>
                 <div style ="width: 500px; height: 100%; float:left">
-                  <span><%= book[i].bookname %></span><br />
-                  <span>Thể loại: <%= book[i].booktype %></span><br />
-                  <p class="price"><strong>Giá: <%= book[i].bookprice %> VND</strong></p>
-                  <p>Số lượng: <%= sl[i] %></p>
-                  <a href="cartdel-<%= book[i]._id %>">
-                    <input type="button" value="Xoá" />
-                  </a>
+                  <span><%= k.bookname %></span><br />
+                  <span>Thể loại: <%= k.booktype %></span><br />
+                  <p class="price"><strong>Giá: <%= k.bookprice %> VND</strong></p>
+                  <p>Số lượng: <%= sellbook[i].amount %></p>
                 </div>
-
+                <% n = 1; } %>
+              <% }) %>
               </div></a>
             <% i = i + 1;} %>
 

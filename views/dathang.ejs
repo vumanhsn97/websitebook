@@ -118,33 +118,30 @@
           <!-- First Tab Content -->
           <div class="items">
             <div class="cl">&nbsp;</div>
-            <div style="width:200px; height: 300px; float:right;">
-              <p style="font-size: 20px; color:red;"> Tổng số tiền cần thanh toán là: <% var i = 0, s = 0; while(book[i]){ s = s + book[i].bookprice*sl[i]; %>
 
-              <% i = i + 1;} %>
-              <%= s %> VNĐ
-            </p>
-              <a href="dathang"><input type="button" value="Thanh toán" style="width:200px; height:40px; font-size:20px;"/></a>
-            </div>
-            <% var i = 0; while(book[i]){ %>
-              <a href="chitiet-<%= i._id %>"><div style="width:700px; height:200px; border-bottom:1px solid black; float:left;">
-                <% var n=0; images.forEach(function(j){ %>
-                  <% if(j.idbook == book[i]._id && n==0){ %>
-                    <div style="float:left; width:160px; height:190px; margin:5px 10px;"><img src="<%= j.imageurl %>" width="100%" height="100%" /></div>
-                  <% n = 1; } %>
-                <% }) %>
-                <div style ="width: 500px; height: 100%; float:left">
-                  <span><%= book[i].bookname %></span><br />
-                  <span>Thể loại: <%= book[i].booktype %></span><br />
-                  <p class="price"><strong>Giá: <%= book[i].bookprice %> VND</strong></p>
-                  <p>Số lượng: <%= sl[i] %></p>
-                  <a href="cartdel-<%= book[i]._id %>">
-                    <input type="button" value="Xoá" />
-                  </a>
-                </div>
-
-              </div></a>
-            <% i = i + 1;} %>
+            <p style="font-size:25px; color:red; ">Mời bạn điền thông tin bên dưới</p>
+              <form action="/dathang" method="post">
+                <table style="font-size: 15px;">
+                  <tr>
+                    <td>Địa chỉ nhận:</td>
+                    <td><textarea cols="74" rows="2" maxlength="80" name="address" style="font-size:15px;"></textarea></td>
+                  </tr>
+									<tr>
+                    <td>Ngày mua: </td>
+                    <td><input type="text" id="time" name="date"  style="font-size:15px; width:80px;"/></td>
+                  </tr>
+                  <tr>
+                    <td>Số điện thoại: </td>
+                    <td><input type="text" name="phone"  style="font-size:15px; width:100px;"/></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="submit" value="Giao dịch" style="background-color:yellow; width:100px; height: 30px; font-size:15px; margin-top: 10px;"/>
+                    </td>
+                    <td></td>
+                  </tr>
+                </table>
+              </form>
 
             <div class="cl">&nbsp;</div>
           </div>
@@ -168,6 +165,14 @@
     <!-- End Content -->
   </div>
 </div>
+<script>
+			var myVar = setInterval(myTimer, 1000);
+			function myTimer() {
+				var d = new Date();
+				var month = parseInt(d.getMonth()) + 1;
+				document.getElementById("time").value = d.getDate()+"/"+ month + "/" + d.getFullYear();
+			}
+		</script>
 <!-- End Main -->
 </body>
 </html>

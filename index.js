@@ -59,11 +59,21 @@ commentSchema = new mongoose.Schema({
   content: String
 });
 
+sellbookSchema = new mongoose.Schema({
+  idbook: String,
+  idcus: String,
+  amount: Number,
+  date: String,
+  status: String,
+  address: String,
+  phone: String
+});
+
 books = mongoose.model('books', booksSchema);
 imagesbook = mongoose.model('imagesbook', imagesbookSchema);
 customer = mongoose.model('customer', customerSchema);
 comment = mongoose.model('comment', commentSchema);
-
+sellbook = mongoose.model('sellbook', sellbookSchema);
 
 //Code website
 app.use('/', require('./routes/trangchu'));
@@ -75,3 +85,4 @@ app.use('/', require('./routes/login'));
 app.use('/', require('./routes/register'));
 app.use('/', require('./routes/logout'));
 app.use('/', require('./routes/addtocart'));
+app.use('/', require('./routes/account'));
