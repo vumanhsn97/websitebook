@@ -86,3 +86,4 @@ app.use('/', require('./routes/register'));
 app.use('/', require('./routes/logout'));
 app.use('/', require('./routes/addtocart'));
 app.use('/', require('./routes/account'));
+app.use('/', require('./routes/search'));

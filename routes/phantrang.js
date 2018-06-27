@@ -18,7 +18,7 @@ router.get("/page-:id",function(req, res){
           i = i+1;
         }
         imagesbook.find({}, function(err, images){
-          res.render("phantrang",{book:listbook, images:images, page:parseInt(req.params.id), go:go});
+          res.render("phantrang",{book:listbook, images:images, page:parseInt(req.params.id), go:go, user:req.user});
         });
       }
     });

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Wing the Air</title>
+<title>Book Store</title>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
 <link rel="stylesheet" href="css/chitiet.css" type="text/css" media="all" />
@@ -21,14 +21,17 @@
   <div class="shell">
     <!-- Header -->
     <div id="header">
-      <h1 id="logo"><a href="#">Urgan Gear</a></h1>
+      <h1 id="logo"></h1>
       <div id="navigation">
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Support</a></li>
-          <li><a href="#">My Account</a></li>
-          <li><a href="#">The Store</a></li>
-          <li class="last"><a href="#">Contact</a></li>
+          <% if(user){ %>
+            <li><a href="account">Thông tin tài khoản</a></li>
+            <li><a href="logout">Đăng xuất</a></li>
+          <% } else {%>
+            <li><a href="login">Đăng nhập</a></li>
+            <li><a href="register">Đăng ký</a></li>
+          <% } %>
+          <li class="last"><a href="#">Liên hệ </a></li>
         </ul>
       </div>
     </div>
@@ -76,15 +79,32 @@
     <!-- Search, etc -->
     <div class="options">
       <div class="search">
-        <form action="#" method="post">
-          <span class="field">
-          <input type="text" class="blink" value="SEARCH" title="SEARCH" />
-          </span>
-          <input type="text" class="search-submit" value="GO" />
+        <form action="search" method="post">
+          <input type="text" name="key" placeholder="Tên sản phẩm" />
+          <input type="text" name="price" value="Giá tối đa" />
+          <select name="typebook" id="loai">
+            <option value="Thể loại">Thể loại</option>
+            <option value="Truyện ngắn">Truyện ngắn</option>
+            <option value="Truyện tranh">Truyện tranh</option>
+            <option value="Giáo dục">Giáo dục</option>
+            <option value="Kĩ năng sống">Kĩ năng sống</option>
+            <option value="Kinh tế">Kinh tế</option>
+            <option value="Tâm lý">Tâm lý</option>
+            <option value="Sách giáo khoa">Sách giáo khoa</option>
+            <option value="Văn học">Văn học</option>
+            <option value="Ngoại ngữ">Ngoại ngữ</option>
+            <option value="Truyện cổ tích">Truyện cổ tích</option>
+          </select>
+          <select name="xapxep" id="xep">
+            <option value="Xắp xếp">Xắp xếp</option>
+            <option value="Lượt xem">Lượt xem</option>
+            <option value="Ngày đăng">Ngày đăng</option>
+          </select>
+          <input type="submit" value="Tìm kiếm" />
         </form>
       </div>
-      <span class="left"><a href="#">Advanced Search</a></span>
-      <div class="right"> <span class="cart"> <a href="#" class="cart-ico">&nbsp;</a> <strong>$0.00</strong> </span> <span class="left more-links"> <a href="#">Checkout</a> <a href="#">Details</a> </span> </div>
+
+      <div class="right"> <span class="cart"> <a href="cart" class="cart-ico">&nbsp;</a> <strong>Giỏ hàng</strong> </span></div>
     </div>
     <!-- End Search, etc -->
     <!-- Content -->
@@ -201,7 +221,6 @@
          -->
         <!-- Footer -->
         <div id="footer">
-          <div class="left"> <a href="#">Home</a> <span>|</span> <a href="#">Support</a> <span>|</span> <a href="#">My Account</a> <span>|</span> <a href="#">The Store</a> <span>|</span> <a href="#">Contact</a> </div>
           <div class="right"> &copy; Nhom3catcon </div>
         </div>
         <!-- End Footer -->
