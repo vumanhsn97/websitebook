@@ -23,59 +23,16 @@ app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
 mongoose.connect('mongodb://admin:admin@ds231360.mlab.com:31360/btn05');
-booksSchema = new mongoose.Schema({
-  bookname: {
-    type: String,
-    maxlength: 50
-  },
-  bookprice: {
-    type: Number,
-    min: 0
-  },
-  bookcontent: String,
-  booktype: String,
-  viewsbook: {
-    type: Number,
-    min: 0
-  },
-  author: String,
-});
 
-imagesbookSchema = new mongoose.Schema({
-  idbook: String,
-  imageurl: String
-});
+//Models
+comment = require('./models/comment');
+customer = require('./models/customer');
+imagesbook = require('./models/imagesbook');
+sellbook = require('./models/sellbook');
+books = require('./models/books');
+admin = require('./models/admin');
 
-customerSchema = new mongoose.Schema({
-  username: String,
-  password: String,
-  cusname: String,
-  email: String
-});
-
-commentSchema = new mongoose.Schema({
-  idbook: String,
-  name: String,
-  content: String
-});
-
-sellbookSchema = new mongoose.Schema({
-  idbook: String,
-  idcus: String,
-  amount: Number,
-  date: String,
-  status: String,
-  address: String,
-  phone: String
-});
-
-books = mongoose.model('books', booksSchema);
-imagesbook = mongoose.model('imagesbook', imagesbookSchema);
-customer = mongoose.model('customer', customerSchema);
-comment = mongoose.model('comment', commentSchema);
-sellbook = mongoose.model('sellbook', sellbookSchema);
-
-//Code website
+//Code views
 app.use('/', require('./routes/trangchu'));
 app.use('/', require('./routes/phantrang'));
 app.use('/', require('./routes/theloai'));
@@ -87,3 +44,4 @@ app.use('/', require('./routes/logout'));
 app.use('/', require('./routes/addtocart'));
 app.use('/', require('./routes/account'));
 app.use('/', require('./routes/search'));
+app.use('/', require('./routes/adminlogin'));
