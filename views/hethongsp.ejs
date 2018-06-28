@@ -2,21 +2,21 @@
 
 <head>
     <link rel="stylesheet" href="css/admin.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/hethongsp.css" type="text/css" media="all" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 
 <body>
-
+    <div class="header" style="height: 60px; background-color: rgb(19, 140, 221);">
+        <a style="color: black; font-size: 24px; width: 120px; height:60px; line-height: 60px; text-align: center;">Admintrator</a>
+    </div>
     <div class="container">
-      <a href="adminlogout"><div style="width:100px; height:40px; background-color:#4da6ff; float:right; border-radius:0px 0px 10px 10px;">
-        <p style="margin-top:10px; font-size:15px; margin-left:15px;">Đăng xuất</p>
-      </div></a>
         <div style="height:100px; width: 100%;"></div>
         <div style="width:250px; height: 500px; float:left;">
-
             <!--Tài khoản-->
             <a href="#">
                 <div class="menu" style="margin-top:10px;" onclick="funtaikhoan()">
@@ -37,20 +37,20 @@
                     <div id="text">Hệ thống </div>
                 </div>
             </a>
-            <div id="hethong" style="display:none;">
+            <div id="hethong">
                 <a href="hethongsp">
-                    <div class="tab"><span style="margin-left:20px;">Hệ thống sản phẩm</span></div>
+                    <div class="tab"><span style="margin-left:20px; color:red;">Hệ thống sản phẩm</span></div>
                 </a>
                 <a href="kiemtrasp">
                     <div class="tab"><span style="margin-left:20px;">Kiểm tra sản phẩm</span></div>
                 </a>
-                <a href="hethongsp">
+                <a href="thongkedonhang">
                     <div class="tab"><span style="margin-left:20px;">Thống kê đơn hàng</span></div>
                 </a>
-                <a href="kiemtrasp">
+                <a href="thongkedoanhso">
                     <div class="tab"><span style="margin-left:20px;">Thống kê doanh số</span></div>
                 </a>
-                <a href="kiemtrasp">
+                <a href="thongketop10">
                     <div class="tab"><span style="margin-left:20px;">Thống kê top10</span></div>
                 </a>
             </div>
@@ -72,6 +72,7 @@
                     <div class="tab"><span style="margin-left:20px;">Sửa thông tin sách</span></div>
                 </a>
             </div>
+
             <a href="#">
                 <div class="menu" style="margin-top:10px;" onclick="funanhsach()">
                     <div id="text">Ảnh Sách</div>
@@ -86,8 +87,36 @@
                 </a>
             </div>
         </div>
-        <div style="width:800px; height: 500px; margin-left: 60px; float:left; margin-top: -10px; border:1px solid black;">
-          <div style="margin: 200px 300px; width:300px; height:40px; font-size:30px;">Xin chào admin </p>
+        <div style="width:800px; height: 500px; margin-left: 60px; float:left;">
+            <p style="color:red; font-size:28px; margin-left:10px;">Hệ thống sản phẩm</p>
+            <form action="/hethongsp" method="post">
+                <table style="width:100%;">
+                    <tr>
+                        <th name="STT">STT</th>
+                        <th name="bookname">Tên sách</th>
+                        <th name="booktype">Loại sách</th>
+                        <th name="bookprice">Giá </th>
+                        <th name="author">Tác giả</th>
+                    </tr>
+                    <% var x = 1; book.forEach(function(i){ %>
+                      <tr>
+                          <td><%= x %></td>
+                          <td><%= i.bookname %></td>
+                          <td><%= i.booktype %></td>
+                          <td><%= i.bookprice %></td>
+                          <td><%= i.author %></td>
+                      </tr>
+                    <% x = x + 1;}) %>
+                </table>
+            </form>
+        </div>
+        <div style="margin-left:300px">
+          <ul class="pager pagination pagination-lg">
+              <% var i = 1; while(maxpage>0){ %>
+                <li><a href="#"><%= i %></a></li>
+              <% i = i + 1; maxpage = maxpage - 1;} %>
+
+          </ul>
         </div>
     </div>
 

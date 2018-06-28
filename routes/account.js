@@ -26,9 +26,15 @@ router.post("/suaaccount", urlencodedParser, function(req, res){
   if(req.user){
     var cusname = req.body.cusname;
     var email = req.body.email;
+    var address = req.body.address;
+    var sex = req.body.sex;
+    var phone = req.body.phone;
     customer.findOne({_id:req.user._id}, function(err, result){
       result.cusname = cusname;
       result.email = email;
+      result.address = address;
+      result.sex = sex;
+      result.phone = phone;
       result.save();
     })
     res.send("<p>Sửa tài khoản thành công</p><a href='/account'>Click here</a>")

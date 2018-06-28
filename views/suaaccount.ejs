@@ -21,6 +21,20 @@
 
 				<p class="header">Địa chỉ email</p>
 				<input type="text" name="email" value="<%= user.email %>"/>
+
+				<p class="header">Giới tính</p>
+				<select name="sex" style="font-size:20px; margin:10px;">
+					<option value="Khác">Khác</option>
+				  <option value="Nam">Nam</option>
+				  <option value="Nữ">Nữ</option>
+				</select>
+
+				<p class="header">Số điện thoại</p>
+				<input type="text" name="phone" value="<%= user.phone %>"/>
+
+				<p class="header">Địa chỉ</p>
+				<input type="text" name="address" value="<%= user.address %>"/>
+
 				<input type="submit" class="sign-in" value="Cập nhật">
 			</form>
 		</div>

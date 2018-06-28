@@ -5,11 +5,21 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var multer =  require('multer');
 //Code trang admin
 router.get('/admin', function(req, res){
-    res.render("admin");
+  if(req.session.user){
+      res.render("admin");
+  }
+  else{
+    res.send("underfinded")
+  }
 });
 
 router.get('/themsach', function(req, res){
-  res.render('themsach');
+  if(req.session.user){
+    res.render('themsach');
+  }
+  else{
+    res.send("underfinded")
+  }
 });
 
 router.post('/themsach', urlencodedParser, function(req, res){
@@ -30,9 +40,14 @@ router.post('/themsach', urlencodedParser, function(req, res){
 });
 
 router.get('/xoasach', function(req, res){
-  books.find({}, function(err, result){
-    res.render('xoasach',{book:result});
-  })
+  if(req.session.user){
+    books.find({}, function(err, result){
+      res.render('xoasach',{book:result});
+    })
+  }
+  else{
+    res.send("underfinded");
+  }
 });
 router.post('/xoasach', urlencodedParser, function(req, res){
   var timkiem = req.body.timkiem;
@@ -50,19 +65,26 @@ router.post('/xoasach', urlencodedParser, function(req, res){
   })
 });
 router.get('/xoasach-:id', function(req, res){
-  var id = req.params.id;
-  books.deleteOne({_id:id}, function(err){
-    if(err) res.send("<p>Lỗi xoá sách</p><a href='/xoasach'>Quay lại</a>")
-    else{
-      res.send("<p>Xoá sách thành công</p><a href='/xoasach'>Quay lại</a>")
-    }
-  });
+  if(req.session.user){
+    var id = req.params.id;
+    books.deleteOne({_id:id}, function(err){
+      if(err) res.send("<p>Lỗi xoá sách</p><a href='/xoasach'>Quay lại</a>")
+      else{
+        res.send("<p>Xoá sách thành công</p><a href='/xoasach'>Quay lại</a>")
+      }
+    });
+  }
+  else{
+    res.send("underfinded");
+  }
 });
 
 router.get('/suasach', function(req, res){
-  books.find({}, function(err, result){
-    res.render('suasach',{book:result});
-  })
+  if(req.session.user){
+    books.find({}, function(err, result){
+      res.render('suasach',{book:result});
+    })
+  }
 });
 router.post('/suasach', urlencodedParser, function(req, res){
   var timkiem = req.body.timkiem;
@@ -190,5 +212,60 @@ router.get('/xoaanh-:id', function(req, res){
       res.send("<p>Xoá ảnh thành công</p><a href='/xoaanh'>Quay lại</a>")
     }
   })
+});
+
+router.get('/hethongsp-:page', function(req, res){
+  var page = req.params.page;
+  var i = (page - 1) * 15;
+  var n = i + 15;
+  var b=[];
+  books.find({}, function(err, book){
+    var sl = 0;
+    while (book[sl]) {
+      sl = sl + 1;
+    }
+    sl = sl / 15;
+    while (book[i]) {
+      b.push(book[i]);
+      if(i==n) break;
+      i = i+1;
+    }
+
+    res.render("hethongsp", {book:b, maxpage:sl});
+  });
+});
+
+router.get('/themtaikhoan', function(req, res){
+    res.render("themtaikhoan");
+});
+
+router.get('/thongketop10', function(req, res){
+    res.render("thongketop10");
+});
+
+router.get('/thongkedonhang', function(req, res){
+  sellbook.find({}, function(err, sellbook){
+    var i = 0;
+    while (sellbook[i]) {
+      i = i + 1;
+    }
+    i = i / 12;
+    books.find({}, function(err, book){
+      res.render("thongkedonhang", {sellbook:sellbook, maxpage:i, book:book});
+    })
+
+  })
+
+});
+
+router.post('/capnhat-:id', urlencodedParser, function(req, res){
+  var id = req.params.id;
+  var status = req.body.status;
+  sellbook.findOne({_id:id}, function(err, sellbook){
+    sellbook.status = status;
+    sellbook.save();
+    res.redirect("thongkedonhang");
+  })
+
 });
 module.exports = router;

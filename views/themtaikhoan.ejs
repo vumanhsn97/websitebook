@@ -9,23 +9,21 @@
 </head>
 
 <body>
-
+    <div class="header" style="height: 60px; background-color: rgb(19, 140, 221);">
+        <a style="color: black; font-size: 24px; width: 120px; height:60px; line-height: 60px; text-align: center;">Admintrator</a>
+    </div>
     <div class="container">
-      <a href="adminlogout"><div style="width:100px; height:40px; background-color:#4da6ff; float:right; border-radius:0px 0px 10px 10px;">
-        <p style="margin-top:10px; font-size:15px; margin-left:15px;">Đăng xuất</p>
-      </div></a>
         <div style="height:100px; width: 100%;"></div>
         <div style="width:250px; height: 500px; float:left;">
-
             <!--Tài khoản-->
             <a href="#">
                 <div class="menu" style="margin-top:10px;" onclick="funtaikhoan()">
                     <div id="text">Tài khoản</div>
                 </div>
             </a>
-            <div id="taikhoan" style="display:none;">
-                <a href="themtaikhoan">
-                    <div class="tab"><span style="margin-left:20px;">Thêm tài khoản</span></div>
+            <div id="taikhoan">
+                <a href="themtaikhoan" target="blank">
+                    <div class="tab"><span style="margin-left:20px; color:red;">Thêm tài khoản</span></div>
                 </a>
                 <a href="thongtincanhan">
                     <div class="tab"><span style="margin-left:20px;">Thông tin cá nhân</span></div>
@@ -86,9 +84,19 @@
                 </a>
             </div>
         </div>
-        <div style="width:800px; height: 500px; margin-left: 60px; float:left; margin-top: -10px; border:1px solid black;">
-          <div style="margin: 200px 300px; width:300px; height:40px; font-size:30px;">Xin chào admin </p>
-        </div>
+        <form style=" height: 400px; margin-left:140px; float:left; border: 1px solid gray; padding:30px">
+            <h2 style="color:royalblue; text-align: center;">Admin register</h2>
+            <div class="form-group">
+                <label for="email">Tên đăng nhập:</label>
+                <input type="text" class="form-control" id="admin" placeholder="Enter name" style="width:300px">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" id="pwd" placeholder="Enter password" style="width:300px">
+            </div>
+
+            <button type="submit" class="btn btn-default" style="background-color: royalblue;margin:auto">Submit</button>
+        </form>
     </div>
 
     <script>

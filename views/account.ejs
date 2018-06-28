@@ -136,11 +136,14 @@
         <div class="tabbed">
           <!-- First Tab Content -->
           <div style="width:940px; height:300px;">
-            <div style="width:200px; height:40px;  background-color:red; margin:10px 350px;">
-              <p style="margin:0px 10px; font-size:20px;">Thông tin tài khoản<p>
+            <div style="width:300px; height:40px; margin:10px 350px;">
+              <p style="margin:0px 10px; font-size:30px;">Thông tin tài khoản<p>
             </div>
             <p>Họ và tên: <%= user.cusname %></p>
             <p>Địa chỉ Email: <%= user.email %></p>
+            <p>Số điện thoại: <%= user.phone %></p>
+            <p>Giới tính: <%= user.sex %></p>
+            <p>Địa chỉ: <%= user.address %></p>
             <a href="suaaccount">
               <input type="button" value="Chỉnh sửa thông tin cá nhân"/>
             </a>

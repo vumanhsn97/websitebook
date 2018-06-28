@@ -139,7 +139,7 @@
             <div class="cl">&nbsp;</div>
             <ul>
               <% book.forEach(function(i){ %>
-                <a href="chitiet-<%= i._id %>"><li>
+                <a href="chitiet-<%= i._id %>-1"><li>
                   <% var n=0; images.forEach(function(j){ %>
                     <% if(j.idbook == i._id && n==0){ %>
                       <div class="image"><img src="<%= j.imageurl %>" width="100%" height="100%" /></div>

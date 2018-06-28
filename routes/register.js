@@ -18,8 +18,11 @@ router.post('/register', urlencodedParser, function(req, res){
         username:username,
         email:email,
         password:password,
-        cusname:cusname
-      })
+        cusname:cusname,
+        address:"Chưa cập nhật",
+        sex:"Chưa cập nhật",
+        phone:"Chưa cập nhật"
+      });
       res.redirect('trangchu');
     }
     else{

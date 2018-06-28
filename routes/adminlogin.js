@@ -1,38 +1,29 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var LocalStrategy = require('passport-local').Strategy;
 router.get("/adminlogin", function(req, res){
   res.render('adminlogin');
 });
-router.post('/adminlogin', passport.authenticate('local', {
-    failureRedirect: '/adminlogin',
-    successRedirect: '/admin'
-}));
-passport.use(new LocalStrategy(
-  (username, password, done)=>{
-    admin.findOne({ username: username }, function (err, user) {
-      if (err) { return done(err); }
-      if (!user) {
-        return done(null, false);
+router.post('/adminlogin', urlencodedParser, function(req, res){
+  var username = req.body.username;
+  var password = req.body.password;
+  admin.findOne({username:username}, function(err, user){
+    if(user){
+      if(user.password==password){
+        req.session.user = user;
+        res.redirect("admin")
       }
-      else {
-        if(user.password!=password){
-          return done(null, false);
-        }
+      else{
+        res.redirect('adminlogin');
       }
-      return done(null, user);
-    });
-  }
-))
+    }
+    else {
+      res.redirect('adminlogin')
+    }
+  })
+})
 
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
-
-passport.deserializeUser(function(id, done) {
-  customer.findById(id, function(err, user) {
-    done(err, user);
-  });
-});
 module.exports = router;

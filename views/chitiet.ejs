@@ -190,7 +190,7 @@
           <form action="comment-<%= book._id %>" method="post">
           <% if(user){ %>
             <p>Nội dung</p>
-            <textarea cols="100" rows="2" name="content"></textarea>
+            <textarea cols="100" rows="2" name="content" maxlength="150"></textarea>
             <input type="submit" value="Gửi" />
           <%} else{ %>
             <table>
@@ -199,8 +199,8 @@
                 <td> Nội dung</td>
               </tr>
               <tr>
-                <td><input type="text" name="username" style="margin-right:10px; margin-top: -20px;"/></td>
-                <td><textarea cols="100" rows="2" name="content"></textarea></td>
+                <td><input type="text" name="username" maxlength="20" style="margin-right:10px; margin-top: -20px;"/></td>
+                <td><textarea cols="100" rows="2" name="content" maxlength="150"></textarea></td>
               </tr>
               <tr>
                 <td><input type="submit" value="Gửi" /></td>
@@ -210,8 +210,17 @@
           <%}%>
           </form>
           <% comment.forEach(function(i){ %>
-            <p style="font-size: 15px; line-height: 1.5; margin-top:20px;"><%= i.name %> : <%= i.content %></p>
+            <p style="font-size: 15px; line-height: 1.5; margin-top:20px; background-color:#56ffff; border-radius:10px;"><%= i.name %> : <%= i.content %></p>
           <%})%>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+
+              <% var x = 1; while(maxpage>0){ %>
+                <li class="page-item"><a class="page-link" href="chitiet-<%= book._id %>-<%=x%>"><%= x %></a></li>
+              <% x = x + 1; maxpage = maxpage - 1;} %>
+
+            </ul>
+          </nav>
         </div>
         <!-- Brands
         <div class="brands">

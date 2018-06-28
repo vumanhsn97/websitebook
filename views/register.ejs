@@ -23,20 +23,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<form action="register" method="post">
 
 						<p class="header">Tên tài khoản</p>
-						<input type="text" name="username" placeholder="Your Full Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Full Name';}" required="required">
-
+						<input type="text" name="username" id="user" placeholder="Tên đăng nhập" onchange="username()">
+						<p id="failuser"></p>
 						<p class="header">Họ và Tên</p>
-						<input type="text" name="cusname" placeholder="Your Full Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Full Name';}" required="required">
+						<input type="text" name="cusname" placeholder="Họ tên">
 
 						<p class="header">Dịa chỉ email</p>
-						<input type="text" name="email" placeholder="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="required">
+						<input type="text" name="email" placeholder="Email" >
 
 						<p class="header">Mật khẩu</p>
-						<input type="password" name="password" placeholder="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="required">
+						<input type="password" name="password" id="pass1" placeholder="Password" >
 
 						<p class="header">Nhập lại mật khẩu</p>
-						<input type="password" name="password2" placeholder="Confirm Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Confirm Password';}" required="required">
-
+						<input type="password" name="password2" id="pass2" placeholder="Confirm Password" >
+						<p id="failpass"></p>
 						<input type="submit" class="sign-in" value="Đăng ký">
 					</form>
 		</div>
@@ -46,5 +46,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </div><!-- tab-content -->
 </div> <!-- /form -->
 <p class="copyright"></p>
+
 </body>
 </html>
