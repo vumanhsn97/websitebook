@@ -239,6 +239,11 @@ router.get('/themtaikhoan', function(req, res){
     res.render("themtaikhoan");
 });
 
+router.get('/adminlogout', function(req, res){
+  req.session.user = null;
+    res.render("adminlogin");
+});
+
 router.get('/thongketop10', function(req, res){
     res.render("thongketop10");
 });
@@ -267,5 +272,22 @@ router.post('/capnhat-:id', urlencodedParser, function(req, res){
     res.redirect("thongkedonhang");
   })
 
+});
+
+router.post('/themtaikhoan', urlencodedParser, function(req, res){
+  var username = req.body.username;
+  var password = req.body.password;
+  admin.findOne({username:username}, function(err, user){
+    if(!user){
+      admin.create({
+        username:username,
+        password:password
+      });
+      res.redirect('admin');
+    }
+    else{
+      res.render('themtaikhoan');
+    }
+  })
 });
 module.exports = router;

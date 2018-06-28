@@ -1,20 +1,26 @@
-.menu{
-  width:250px;
-  height:50px;
-  background-color:#f7f70e;
-  border:1px solid black;
-  border-radius:10px;
+.menu {
+    width: 250px;
+    height: 50px;
+    background-color: rgb(19, 140, 221);
+    border: 1px solid black;
+    border-radius: 10px;
 }
 
-.menu #text{
-  margin-top:10px;
-  margin: center;
-  margin-left: 100px;
-  position: absolute;
-  font-size:18px;
+.menu #text {
+    margin-top: 10px;
+    margin: center;
+    margin-left: 100px;
+    position: absolute;
+    font-size: 22px;
+    color: black;
 }
 
-.tab{
-  border-bottom:1px solid red;
-  margin-top:10px;
+.tab {
+    border-bottom: 1px solid red;
+    margin-top: 10px;
+}
+
+#header {
+    height: 60px;
+    background-color: rgb(19, 140, 221);
 }

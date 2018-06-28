@@ -14,8 +14,8 @@ router.get("/page-:id",function(req, res){
       else {
         while(result[i]){
           listbook.push(result[i]);
-          if(i==n) break;
           i = i+1;
+          if(i==n) break;
         }
         imagesbook.find({}, function(err, images){
           res.render("phantrang",{book:listbook, images:images, page:parseInt(req.params.id), go:go, user:req.user});

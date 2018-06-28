@@ -30,8 +30,8 @@ router.get("/trangchu",function(req, res){
     else {
       while(result[i]){
         listbook.push(result[i]);
-        if(i==n) break;
         i = i+1;
+        if(i==n) break;      
       }
       imagesbook.find({}, function(err, images){
         res.render("trangchu",{book:listbook, images:images, user:req.user});

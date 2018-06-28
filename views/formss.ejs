@@ -1,78 +1,86 @@
-<a href="adminlogout"><div style="width:100px; height:40px; background-color:#4da6ff; float:right; border-radius:0px 0px 10px 10px;">
-  <p style="margin-top:10px; font-size:15px; margin-left:15px;">Đăng xuất</p>
-</div></a>
-  <div style="height:100px; width: 100%;"></div>
-  <div style="width:250px; height: 500px; float:left;">
+<html>
+  <head>
+    <link rel="stylesheet" href="css/admin.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+      <a href="adminlogout"><div style="width:100px; height:40px; background-color:#4da6ff; float:right; border-radius:0px 0px 10px 10px;">
+        <p style="margin-top:10px; font-size:15px; margin-left:15px;">Đăng xuất</p>
+      </div></a>
+      <div style="height:100px; width: 100%;"></div>
+      <div style="width:250px; height: 500px; float:left;">
+          <!--Tài khoản-->
+          <a href="#">
+              <div class="menu" style="margin-top:10px;" onclick="funtaikhoan()">
+                  <div id="text">Tài khoản</div>
+              </div>
+          </a>
+          <div id="taikhoan" style="display:none;">
+              <a href="themtaikhoan">
+                  <div class="tab"><span style="margin-left:20px;">Thêm tài khoản</span></div>
+              </a>
+              <a href="thongtincanhan">
+                  <div class="tab"><span style="margin-left:20px;">Thông tin cá nhân</span></div>
+              </a>
+          </div>
+          <!--Hệ thống sản phẩm-->
+          <a href="#">
+              <div class="menu" style="margin-top:10px" onclick="funhethong()">
+                  <div id="text">Hệ thống </div>
+              </div>
+          </a>
+          <div id="hethong" style="display:none;">
+              <a href="hethongsp-1">
+                  <div class="tab"><span style="margin-left:20px;">Hệ thống sản phẩm</span></div>
+              </a>
+              <a href="kiemtrasp">
+                  <div class="tab"><span style="margin-left:20px;">Kiểm tra sản phẩm</span></div>
+              </a>
+              <a href="thongkedonhang">
+                  <div class="tab"><span style="margin-left:20px;">Thống kê đơn hàng</span></div>
+              </a>
+              <a href="thongkedoanhso">
+                  <div class="tab"><span style="margin-left:20px;">Thống kê doanh số</span></div>
+              </a>
+              <a href="thongketop10">
+                  <div class="tab"><span style="margin-left:20px;">Thống kê top10</span></div>
+              </a>
+          </div>
 
-      <!--Tài khoản-->
-      <a href="#">
-          <div class="menu" style="margin-top:10px;" onclick="funtaikhoan()">
-              <div id="text">Tài khoản</div>
+          <a href="#">
+              <div class="menu" style="margin-top:10px;" onclick="funsach()">
+                  <div id="text">Sản phẩm</div>
+              </div>
+          </a>
+          <div id="sach">
+              <a href="themsach">
+                  <div class="tab"><span style="margin-left:20px;">Thêm sách</span></div>
+              </a>
+              <a href="xoasach">
+                  <div class="tab"><span style="margin-left:20px;">Xoá sách</span></div>
+              </a>
+              <a href="suasach">
+                  <div class="tab"><span style="margin-left:20px; color:red;">Sửa sách</span></div>
+              </a>
           </div>
-      </a>
-      <div id="taikhoan" style="display:none;">
-          <a href="themtaikhoan">
-              <div class="tab"><span style="margin-left:20px;">Thêm tài khoản</span></div>
+          <a href="#">
+              <div class="menu" style="margin-top:10px;" onclick="funanhsach()">
+                  <div id="text">Ảnh Sách</div>
+              </div>
           </a>
-          <a href="thongtincanhan">
-              <div class="tab"><span style="margin-left:20px;">Thông tin cá nhân</span></div>
-          </a>
-      </div>
-      <!--Hệ thống sản phẩm-->
-      <a href="#">
-          <div class="menu" style="margin-top:10px" onclick="funhethong()">
-              <div id="text">Hệ thống </div>
+          <div id="anhsach" style="display:none;">
+              <a href="themanh">
+                  <div class="tab"><span style="margin-left:20px;">Thêm ảnh</span></div>
+              </a>
+              <a href="xoaanh">
+                  <div class="tab"><span style="margin-left:20px;">Xoá ảnh</span></div>
+              </a>
           </div>
-      </a>
-      <div id="hethong" style="display:none;">
-          <a href="hethongsp">
-              <div class="tab"><span style="margin-left:20px;">Hệ thống sản phẩm</span></div>
-          </a>
-          <a href="kiemtrasp">
-              <div class="tab"><span style="margin-left:20px;">Kiểm tra sản phẩm</span></div>
-          </a>
-          <a href="hethongsp">
-              <div class="tab"><span style="margin-left:20px;">Thống kê đơn hàng</span></div>
-          </a>
-          <a href="kiemtrasp">
-              <div class="tab"><span style="margin-left:20px;">Thống kê doanh số</span></div>
-          </a>
-          <a href="kiemtrasp">
-              <div class="tab"><span style="margin-left:20px;">Thống kê top10</span></div>
-          </a>
       </div>
-
-      <!--sản phẩm-->
-      <a href="#">
-          <div class="menu" style="margin-top:10px" onclick="funsach()">
-              <div id="text">Sản phẩm</div>
-          </div>
-      </a>
-      <div id="sach" style="display:none;">
-          <a href="themsach">
-              <div class="tab"><span style="margin-left:20px;">Thêm sách</span></div>
-          </a>
-          <a href="xoasach">
-              <div class="tab"><span style="margin-left:20px;">Xoá sách</span></div>
-          </a>
-          <a href="suasach">
-              <div class="tab"><span style="margin-left:20px;">Sửa thông tin sách</span></div>
-          </a>
-      </div>
-      <a href="#">
-          <div class="menu" style="margin-top:10px;" onclick="funanhsach()">
-              <div id="text">Ảnh Sách</div>
-          </div>
-      </a>
-      <div id="anhsach" style="display:none;">
-          <a href="themanh">
-              <div class="tab"><span style="margin-left:20px;">Thêm ảnh</span></div>
-          </a>
-          <a href="xoaanh">
-              <div class="tab"><span style="margin-left:20px;">Xoá ảnh</span></div>
-          </a>
-      </div>
-    </div>
       <div style="width:800px; height: 500px; margin-left: 60px; float:left;">
         <p style="color:red; font-size:25px; margin-left:10px;">Cập nhật theo form bên dưới</p>
         <form action="/suasach-<%= fixbook._id %>" method="post">

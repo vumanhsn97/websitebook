@@ -13,6 +13,9 @@
         <a style="color: black; font-size: 24px; width: 120px; height:60px; line-height: 60px; text-align: center;">Admintrator</a>
     </div>
     <div class="container">
+      <a href="adminlogout"><div style="width:100px; height:40px; background-color:#4da6ff; float:right; border-radius:0px 0px 10px 10px;">
+        <p style="margin-top:10px; font-size:15px; margin-left:15px;">Đăng xuất</p>
+      </div></a>
         <div style="height:100px; width: 100%;"></div>
         <div style="width:250px; height: 500px; float:left;">
             <!--Tài khoản-->
@@ -36,21 +39,21 @@
                 </div>
             </a>
             <div id="hethong" style="display:none;">
-                <a href="hethongsp">
-                    <div class="tab"><span style="margin-left:20px;">Hệ thống sản phẩm</span></div>
-                </a>
-                <a href="kiemtrasp">
-                    <div class="tab"><span style="margin-left:20px;">Kiểm tra sản phẩm</span></div>
-                </a>
-                <a href="hethongsp">
-                    <div class="tab"><span style="margin-left:20px;">Thống kê đơn hàng</span></div>
-                </a>
-                <a href="kiemtrasp">
-                    <div class="tab"><span style="margin-left:20px;">Thống kê doanh số</span></div>
-                </a>
-                <a href="kiemtrasp">
-                    <div class="tab"><span style="margin-left:20px;">Thống kê top10</span></div>
-                </a>
+              <a href="hethongsp-1">
+                  <div class="tab"><span style="margin-left:20px;">Hệ thống sản phẩm</span></div>
+              </a>
+              <a href="kiemtrasp">
+                  <div class="tab"><span style="margin-left:20px;">Kiểm tra sản phẩm</span></div>
+              </a>
+              <a href="thongkedonhang">
+                  <div class="tab"><span style="margin-left:20px;">Thống kê đơn hàng</span></div>
+              </a>
+              <a href="thongkedoanhso">
+                  <div class="tab"><span style="margin-left:20px;">Thống kê doanh số</span></div>
+              </a>
+              <a href="thongketop10">
+                  <div class="tab"><span style="margin-left:20px;">Thống kê top10</span></div>
+              </a>
             </div>
 
             <!--sản phẩm-->
@@ -84,15 +87,15 @@
                 </a>
             </div>
         </div>
-        <form style=" height: 400px; margin-left:140px; float:left; border: 1px solid gray; padding:30px">
+        <form style=" height: 400px; margin-left:140px; float:left; border: 1px solid gray; padding:30px" method="post" action="themtaikhoan">
             <h2 style="color:royalblue; text-align: center;">Admin register</h2>
             <div class="form-group">
                 <label for="email">Tên đăng nhập:</label>
-                <input type="text" class="form-control" id="admin" placeholder="Enter name" style="width:300px">
+                <input type="text" class="form-control" name="username" id="admin" placeholder="Enter name" style="width:300px">
             </div>
             <div class="form-group">
                 <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" style="width:300px">
+                <input type="password" class="form-control" name="password" id="pwd" placeholder="Enter password" style="width:300px">
             </div>
 
             <button type="submit" class="btn btn-default" style="background-color: royalblue;margin:auto">Submit</button>
